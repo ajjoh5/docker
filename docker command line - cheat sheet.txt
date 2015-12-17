@@ -1,0 +1,36 @@
+//Pull a docker image
+docker pull ubuntu:14.04
+
+//Pull and run a docker image
+docker run
+
+//Run new docker container and go to command line
+docker run -it --rm node
+
+
+//Stop all docker containers
+docker stop $(docker ps -a -q)
+
+//Remove all containers
+docker rm $(docker ps -a -q)
+
+//Stop & Remove all containers
+docker stop $(docker ps -a -q); docker rm $(docker ps -a -q)
+
+
+//Building a docker image
+//- where the name of the image is "adamj101/image-name"
+//- the dockerfile is picked up by the "." being get the default file
+//- called "Dockerfile" in the current directory
+docker build -t adamj101/image-name .
+
+docker build -t adamj101/rebootjs .
+
+
+//Run up a docker container based on the docker you built or pulled
+docker run -d -p 80:80 --name project youruserName/yourproject
+
+docker build -t adamj101/rebootjs .
+docker run -p 3001:3000 -d adamj101/rebootjs
+
+IP - 192.168.99.100
